@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bella Roma — Menu</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',        // ⬅️ add this line
+            theme: {
+                extend: {
+                    boxShadow: { soft: '0 10px 30px rgba(0,0,0,0.07)' }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Keep anchors visible below the sticky category bar */
+        section {
+            scroll-margin-top: 5rem;
+        }
+    </style>
+    <!-- App JS (deferred) -->
+    <script defer src="app.js"></script>
+</head>
+
+<body class="bg-gray-50 text-gray-900 dark:bg-gray-900 dark:text-gray-100 transition-colors duration-300">
+    <!-- Floating theme toggle -->
+    <button id="toggleTheme"
+        class="fixed right-4 top-4 z-[60] rounded-2xl px-3 py-1.5 text-sm border border-gray-300 dark:border-gray-700 bg-white/80 dark:bg-gray-800/80 backdrop-blur hover:bg-white dark:hover:bg-gray-800"
+        aria-label="Toggle dark mode">🌙 / ☀️</button>
+
+    <!-- Centered Header -->
+    <header class="mx-auto max-w-4xl px-6 pt-16 pb-8">
+        <div class="text-center">
+            <h1 class="text-4xl font-extrabold tracking-tight">Sinsen Campino</h1>
+            <p class="mt-2 text-gray-600 dark:text-gray-400">Wood‑fired pizzeria · Storgata 12, Oslo</p>
+        </div>
+    </header>
+
+    <!-- Sticky Category Menu (under the header) -->
+    <nav id="categoryMenu"
+        class="sticky top-0 z-50 border-y border-gray-200 dark:border-gray-800 bg-white/90 dark:bg-gray-900/90 backdrop-blur">
+        <div class="mx-auto max-w-4xl px-6">
+            <div class="flex flex-wrap gap-2 py-3" role="tablist" aria-label="Menu categories">
+                <!-- Dynamic category buttons injected here -->
+            </div>
+        </div>
+    </nav>
+
+    <main id="top" class="mx-auto max-w-4xl px-6 pb-24">
+        <!-- Intro copy (optional) -->
+        <section class="pt-6">
+            <p class="text-gray-600 dark:text-gray-400">Scroll or use the sticky menu to jump to each section. Prices in
+                NOK.</p>
+        </section>
+
+        <!-- Dynamic Sections will be inserted here -->
+        <div id="sections" class="mt-8 space-y-16"></div>
+
+        <!-- Contact / Footer -->
+        <section id="contact" class="mt-20 border-t border-gray-200 dark:border-gray-800 pt-10">
+            <div class="grid gap-6 sm:grid-cols-2">
+                <div>
+                    <h2 class="text-xl font-semibold">Contact</h2>
+                    <p class="text-gray-600 dark:text-gray-400">Open daily 11:00–22:00</p>
+                </div>
+                <div class="sm:text-right">
+                    <p class="text-gray-600 dark:text-gray-400">Phone: <a href="tel:+4712345678"
+                            class="text-emerald-600 dark:text-emerald-400 hover:underline">+47 12 34 56 78</a></p>
+                    <p class="text-gray-600 dark:text-gray-400">Email: <a href="mailto:order@bellaroma.no"
+                            class="text-emerald-600 dark:text-emerald-400 hover:underline">order@bellaroma.no</a></p>
+                </div>
+            </div>
+        </section>
+    </main>
+</body>
+
+</html>

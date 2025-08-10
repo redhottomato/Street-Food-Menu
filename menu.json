@@ -1,0 +1,43 @@
+{
+  "categories": [
+    {
+      "id": "pizza",
+      "title": "Pizza",
+      "items": [
+        {"name":"Margherita","desc":"Tomato, mozzarella, basil","price":149,"tags":["vegetarian"],"allergens":["milk","gluten"]},
+        {"name":"Pepperoni","desc":"Tomato, mozzarella, pepperoni","price":169,"tags":["spicy"],"allergens":["milk","gluten"]},
+        {"name":"Prosciutto e Funghi","desc":"Tomato, mozzarella, ham, mushrooms","price":179,"tags":[],"allergens":["milk","gluten"]},
+        {"name":"Diavola","desc":"Tomato, mozzarella, spicy salami, chili oil","price":189,"tags":["spicy"],"allergens":["milk","gluten"]}
+      ]
+    },
+    {
+      "id": "kebab",
+      "title": "Kebab",
+      "items": [
+        {"name":"Döner Kebab","desc":"Beef & lamb, salad, garlic sauce","price":139,"tags":[],"allergens":["gluten","milk","sesame"]},
+        {"name":"Chicken Kebab","desc":"Chicken, salad, chili sauce","price":139,"tags":["spicy"],"allergens":["gluten","milk"]},
+        {"name":"Falafel Wrap","desc":"Falafel, tahini, pickles","price":129,"tags":["vegan","vegetarian"],"allergens":["sesame","gluten"]}
+      ]
+    },
+    {
+      "id": "burgers",
+      "title": "Burgers",
+      "items": [
+        {"name":"Classic Cheeseburger","desc":"150g beef, cheese, house sauce","price":159,"tags":[],"allergens":["milk","gluten","egg"]},
+        {"name":"BBQ Bacon Burger","desc":"Beef, bacon, cheddar, BBQ sauce","price":179,"tags":[],"allergens":["milk","gluten"]},
+        {"name":"Veggie Burger","desc":"Crispy patty, cheddar, aioli","price":149,"tags":["vegetarian"],"allergens":["milk","gluten","egg"]}
+      ]
+    },
+    {
+      "id": "small-orders",
+      "title": "Small Orders",
+      "items": [
+        {"name":"Fries","desc":"Crispy skin-on fries","price":49,"tags":[],"allergens":[]},
+        {"name":"Sweet Potato Fries","desc":"With herb salt","price":59,"tags":["vegetarian","vegan"],"allergens":[]},
+        {"name":"Onion Rings","desc":"Beer-battered","price":59,"tags":["vegetarian"],"allergens":["gluten"]},
+        {"name":"Soda (0.5L)","desc":"Coke, Coke Zero, Fanta, Sprite","price":39,"tags":[],"allergens":[]},
+        {"name":"Water","desc":"Still or sparkling","price":29,"tags":["vegan","vegetarian"],"allergens":[]}
+      ]
+    }
+  ]
+}
