@@ -5,11 +5,12 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Bella Roma — Menu</title>
+
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
-            darkMode: 'class',        // ⬅️ add this line
+            darkMode: 'class',
             theme: {
                 extend: {
                     boxShadow: { soft: '0 10px 30px rgba(0,0,0,0.07)' }
@@ -17,12 +18,36 @@
             }
         }
     </script>
+
     <style>
-        /* Keep anchors visible below the sticky category bar */
+        /* dynamic offset so anchors don't hide under sticky navbar */
+        :root {
+            --nav-h: 5rem;
+        }
+
         section {
-            scroll-margin-top: 5rem;
+            scroll-margin-top: calc(var(--nav-h) + 8px);
+        }
+
+        /* keep if you still want to hide h-scroll bars elsewhere */
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+
+        .text-outline-black {
+            text-shadow:
+                -1px -1px 0 #000,
+                1px -1px 0 #000,
+                -1px 1px 0 #000,
+                1px 1px 0 #000;
         }
     </style>
+
     <!-- App JS (deferred) -->
     <script defer src="app.js"></script>
 </head>
@@ -30,32 +55,60 @@
 <body class="bg-gray-50 text-gray-900 dark:bg-gray-900 dark:text-gray-100 transition-colors duration-300">
     <!-- Floating theme toggle -->
     <button id="toggleTheme"
-        class="fixed right-4 top-4 z-[60] rounded-2xl px-3 py-1.5 text-sm border border-gray-300 dark:border-gray-700 bg-white/80 dark:bg-gray-800/80 backdrop-blur hover:bg-white dark:hover:bg-gray-800"
+        class="fixed right-4 bottom-4 md:top-4 md:bottom-auto z-[60] rounded-2xl px-3 py-1.5 text-sm border border-gray-300 dark:border-gray-700 bg-white/80 dark:bg-gray-800/80 backdrop-blur hover:bg-white dark:hover:bg-gray-800"
         aria-label="Toggle dark mode">🌙 / ☀️</button>
 
-    <!-- Centered Header -->
-    <header class="mx-auto max-w-4xl px-6 pt-16 pb-8">
-        <div class="text-center">
-            <h1 class="text-4xl font-extrabold tracking-tight">Sinsen Campino</h1>
-            <p class="mt-2 text-gray-600 dark:text-gray-400">Wood‑fired pizzeria · Storgata 12, Oslo</p>
+    <header class="mx-auto max-w-4xl px-6 pt-12 pb-6">
+        <div class="relative h-48 md:h-56 rounded-2xl overflow-hidden ring-2 ring-black shadow-soft">
+            <img src="images/sinsen-campino-hero.png" alt="Sinsen Campino exterior" class="h-full w-full object-cover"
+                loading="lazy" />
+            <div class="absolute inset-0 bg-gradient-to-t from-black/40 via-black/10 to-transparent"></div>
+
+            <div class="absolute inset-0 flex items-center justify-center">
+                <h1 class="text-4xl md:text-6xl font-extrabold tracking-tight text-white text-outline-black">
+                    Sinsen Campino
+                </h1>
+            </div>
         </div>
+
+        <p class="mt-3 text-center text-gray-600 dark:text-gray-400">
+            Hans Nielsen Hauges gate 37, 0481 Oslo
+        </p>
+        <p class="mt-1 text-center font-bold">
+            <a href="tel:+4741491111" class="text-emerald-600 dark:text-emerald-400 hover:underline">
+                📞 41 49 11 11
+            </a>
+        </p>
     </header>
 
-    <!-- Sticky Category Menu (under the header) -->
+    <!-- Sticky Category Menu -->
     <nav id="categoryMenu"
         class="sticky top-0 z-50 border-y border-gray-200 dark:border-gray-800 bg-white/90 dark:bg-gray-900/90 backdrop-blur">
-        <div class="mx-auto max-w-4xl px-6">
-            <div class="flex flex-wrap gap-2 py-3" role="tablist" aria-label="Menu categories">
-                <!-- Dynamic category buttons injected here -->
+        <div class="mx-auto max-w-4xl px-6 py-2">
+            <!-- Category buttons centered -->
+            <div class="flex flex-wrap justify-center gap-2" role="tablist" aria-label="Menu categories">
+                <!-- buttons injected here -->
+            </div>
+
+            <!-- Phone number (hidden until header is out of view) -->
+            <div id="navPhone"
+                class="hidden mt-2 pt-2 border-t border-gray-200 dark:border-gray-800 text-center font-bold whitespace-nowrap">
+                <a href="tel:+4741491111" class="text-emerald-600 dark:text-emerald-400 hover:underline">
+                    📞 41 49 11 11
+                </a>
             </div>
         </div>
     </nav>
 
+
+
+
     <main id="top" class="mx-auto max-w-4xl px-6 pb-24">
         <!-- Intro copy (optional) -->
         <section class="pt-6">
-            <p class="text-gray-600 dark:text-gray-400">Scroll or use the sticky menu to jump to each section. Prices in
-                NOK.</p>
+            <p class="text-gray-600 dark:text-gray-400">
+                Scroll or use the sticky menu to jump to each section. Prices in NOK.
+            </p>
         </section>
 
         <!-- Dynamic Sections will be inserted here -->
@@ -69,10 +122,14 @@
                     <p class="text-gray-600 dark:text-gray-400">Open daily 11:00–22:00</p>
                 </div>
                 <div class="sm:text-right">
-                    <p class="text-gray-600 dark:text-gray-400">Phone: <a href="tel:+4712345678"
-                            class="text-emerald-600 dark:text-emerald-400 hover:underline">+47 12 34 56 78</a></p>
-                    <p class="text-gray-600 dark:text-gray-400">Email: <a href="mailto:order@bellaroma.no"
-                            class="text-emerald-600 dark:text-emerald-400 hover:underline">order@bellaroma.no</a></p>
+                    <p class="text-gray-600 dark:text-gray-400">Phone:
+                        <a href="tel:+4712345678" class="text-emerald-600 dark:text-emerald-400 hover:underline">+47 12
+                            34 56 78</a>
+                    </p>
+                    <p class="text-gray-600 dark:text-gray-400">Email:
+                        <a href="mailto:order@bellaroma.no"
+                            class="text-emerald-600 dark:text-emerald-400 hover:underline">order@bellaroma.no</a>
+                    </p>
                 </div>
             </div>
         </section>
